@@ -1,1 +1,46 @@
-Hello, world!
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <script>
+      try {
+        var userLanguage = navigator.language || navigator.userLanguage;
+
+        if (!userLanguage) {
+          userLanguage = "en";
+        }
+
+        userLanguage = userLanguage.toUpperCase();
+
+        var href = null;
+
+        if (userLanguage.startsWith("EN")) {
+          href = "/en/";
+        } else if (userLanguage.startsWith("PL")) {
+          href = "/pl/";
+        }
+        if (href) {
+          window.location.href = href;
+        }
+      } catch (error) {
+        console.error(error);
+
+        window.location.href = "/en/";
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>standitup</h1>
+
+      <ul>
+        <li>
+          <a href="/en/">English</a>
+        </li>
+        <li>
+          <a href="/pl/">Polski</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
